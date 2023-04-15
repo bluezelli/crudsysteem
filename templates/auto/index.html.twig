@@ -12,18 +12,36 @@
             <thead>
             <tr>
                 <th scope="col">Number</th>
-                <th scope="col">title</th>
-                <th scope="col"></th>
+                <th scope="col">type</th>
+                <th scope="col">prijs</th>
+                <th scope="col">voorraad</th>
+                <th scope="col">knop</th>
             </tr>
             </thead>
             <tbody>
                 {% for autos in auto %}
                     <tr>
                         <td>
-                            {{ autos.model }}
+                            {{ autos.id }}
                         </td>
 
-                        <td>{{ auto.type }}</td>
+                        <td>{{ autos.type }}</td>
+                        <td>{{ autos.prijs }}</td>
+                        <td> {{ autos.voorraad }}</td>
+
+                        <td>
+                            <a class="btn btn-dark" href="/details/{{ autos.id }}">details</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-dark" href="/update/{{ autos.id }}">update</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-dark" href="/delete/{{ autos.id }}">delete</a>
+                        </td>
+                        <td>
+                            <a class="btn btn-dark" href="/insert/{{ autos.id }}">insert</a>
+                        </td>
+
                     </tr>
 
                 {% endfor %}
