@@ -5,6 +5,15 @@
 {% block body %}
 
     <div class="container">
+        {%  for msg in app.session.flashbag.get('warning') %}
+            <div class="alert alert-warning">
+                <div class="text-center"> {{ msg }} </div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="container">
         <div class="row">
             <div class="col">
 

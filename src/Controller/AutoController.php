@@ -61,6 +61,7 @@ class AutoController extends AbstractController
             $auto = $form->getData();
             $entityManager->persist($auto);
             $entityManager->flush($auto);
+            $this->addFlash('warning', 'Rij toegevoegd');
 //            $this->redirectToRoute('home');
         }
         return $this->renderForm('insert.html.twig', [

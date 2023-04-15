@@ -3,14 +3,66 @@
 {% block body %}
 
 <div class="container">
-    <div class="row">
-        <div class="col-12 text-center">
-            <h4> {{ auto.model }}  {{ auto.title }}</h4>
-            prijs: {{ auto.prijs }}
+    <div class="row mt-2">
+        <div class="col-6 text-center">
+            <h4> {{ autos.model }}  {{ autos.title }}</h4>
+            prijs: <b>{{ autos.prijs | number_format(2,',', '.') }} </b> </br>
+                op vooraad: <b> {{ autos.vooraad }} </b><br>
+                model: {{ autos.model }}
+                type: {{ autos.type  }}
 
         </div>
+        {% if auto.gewicht => 500 and auto.gewicht <= 750 %}
+        <div class="col-6">
+            <table>
+                <thead>
+                <tr>
+                    <th class="bg-custom">gewicht</th>
+                    <th class="bg-custom">belasting</th>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>18</td>
+                </tr>
+                </thead>
+
+            </table>
+            {% elseif auto.gewicht => 750 and auto.gewicht <= 1000 %}
+            <table>
+                <thead>
+                <tr>
+                    <th class="bg-custom">gewicht</th>
+                    <th class="bg-custom">belasting</th>
+                </tr>
+                <tr>
+                    <td>800</td>
+                    <td>22</td>
+                </tr>
+                </thead>
+
+            </table>
+
+
+        </div>
+
+        {% endfor %}
+
+
     </div>
 </div>
 
 
 {% endblock %}
+
+
+<style>
+    .bg-custom {
+        background-color: #6955d7 !important;
+    }
+    a {
+        text-decoration: none;
+    }
+
+
+
+</style>
